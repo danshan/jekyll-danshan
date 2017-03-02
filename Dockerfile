@@ -11,7 +11,7 @@ RUN apt-get install -y curl nodejs nginx build-essential ruby2.2 ruby2.2-dev wge
 # install bundler
 RUN gem install bundler
 RUN mkdir -p /opt/data
-ADD /opt/data/Gemfile Gemfile
+ADD Gemfile /opt/data/Gemfile
 WORKDIR /opt/data
 RUN bundle install
 RUN apt-get install graphicsmagick
