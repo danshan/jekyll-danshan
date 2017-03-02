@@ -10,17 +10,20 @@ RUN apt-get install -y curl nodejs nginx build-essential ruby2.2 ruby2.2-dev wge
 
 # install bundler
 RUN gem install bundler
+RUN mkdir -p /opt/data
+ADD /opt/data/Gemfile Gemfile
+WORKDIR /opt/data
 RUN bundle install
 RUN apt-get install graphicsmagick
 
 
 # install octopress
-WORKDIR /tmp
-RUN gem install --no-ri --no-rdoc bundler
-RUN gem install --no-ri --no-rdoc octopress
+#WORKDIR /tmp
+#RUN gem install --no-ri --no-rdoc bundler
+#RUN gem install --no-ri --no-rdoc octopress
 
-RUN gem install --no-ri --no-rdoc jekyll-sitemap jekyll-paginate
-RUN gem install --no-ri --no-rdoc rdiscount kramdown pygments.rb
+#RUN gem install --no-ri --no-rdoc jekyll-sitemap jekyll-paginate
+#RUN gem install --no-ri --no-rdoc rdiscount kramdown pygments.rb
 
 RUN pip install -U pip
 RUN pip install pygments --upgrade
