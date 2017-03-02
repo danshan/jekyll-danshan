@@ -10,6 +10,10 @@ RUN apt-get install -y curl
 
 RUN apt-get install -y nodejs nginx build-essential ruby2.2 ruby2.2-dev wget zip python-pip vim git
 
+RUN bundle install
+RUN apt-get install graphicsmagick
+
+
 # install octopress
 WORKDIR /tmp
 RUN gem install --no-ri --no-rdoc bundler
