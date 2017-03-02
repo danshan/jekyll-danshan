@@ -6,10 +6,10 @@ RUN apt-get install -y software-properties-common
 RUN apt-add-repository ppa:brightbox/ruby-ng
 RUN apt-get update
 
-RUN apt-get install -y curl
+RUN apt-get install -y curl nodejs nginx build-essential ruby2.2 ruby2.2-dev wget zip python-pip vim git
 
-RUN apt-get install -y nodejs nginx build-essential ruby2.2 ruby2.2-dev wget zip python-pip vim git
-
+# install bundler
+RUN gem install bundler
 RUN bundle install
 RUN apt-get install graphicsmagick
 
